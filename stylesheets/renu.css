@@ -15,6 +15,15 @@ td {
 	padding: 10px 0 10px 10px;
 	box-sizing: border-box;
 }
+.content-panel {
+	width: 70%;
+	table-layout: fixed;
+	box-sizing: border-box;
+}
+.content-panel img {
+	max-width: 100%;
+	height: auto;
+}
 .gallery-panel h2 {
 	margin: 10px 4px 8px;
 	color: #CCBD88;

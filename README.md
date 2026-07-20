@@ -44,6 +44,37 @@ Gallery images should remain as plain `<img>` elements, without links:
      alt="Restored bath gallery image 1">
 ```
 
+## Responsive content layout
+
+The right-hand gallery occupies 30% of the page and the main content table
+occupies the remaining 70%. The main table must retain the `content-panel`
+class:
+
+```html
+<table class="content-panel" width="70%" align="left" cellpadding="10">
+```
+
+The class uses a fixed table layout so the browser honours the 70% width on
+smaller laptop screens. Images inside the main content scale down to their
+available column width:
+
+```css
+.content-panel {
+	width: 70%;
+	table-layout: fixed;
+	box-sizing: border-box;
+}
+
+.content-panel img {
+	max-width: 100%;
+	height: auto;
+}
+```
+
+Without these rules, the fixed widths on older content images can give the
+table a large intrinsic minimum width, causing it to drop below the floated
+gallery.
+
 ## Restoring the lightbox
 
 Use `index-20260720popup.html` as the reference. To restore the lightbox
@@ -84,4 +115,3 @@ exits without changing the page.
 Add the image file under `images/re-nu-gallery/`, then insert a plain `<img>`
 element into the appropriate gallery column in `index.html`. Use a short,
 descriptive `alt` attribute and URL-encode spaces in paths as `%20`.
-
